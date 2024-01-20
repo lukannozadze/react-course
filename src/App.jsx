@@ -1,9 +1,8 @@
+import Gallery from "./Gallery";
 function App() {
   return (
     <>
-      <div>
-        <h1>Hello From React</h1>
-      </div>
+      <Gallery />
     </>
   );
 }

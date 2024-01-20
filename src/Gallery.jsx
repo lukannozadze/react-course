@@ -1,10 +1,8 @@
-const Profile = () => {
-  return (
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Portrait_Gandhi.jpg/250px-Portrait_Gandhi.jpg"
-      alt="Katherine Johnson"
-    />
-  );
+export const Profile = () => {
+  const imgPath =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Portrait_Gandhi.jpg/250px-Portrait_Gandhi.jpg";
+  const altTxt = "Mahatma Gandhi";
+  return <img src={imgPath} alt={altTxt} />;
 };
 
 const Gallery = () => {

@@ -1,9 +1,8 @@
+import Profile from "./Profile";
 function App() {
   return (
     <>
-      <div>
-        <h1>Hello From React</h1>
-      </div>
+      <Profile />
     </>
   );
 }

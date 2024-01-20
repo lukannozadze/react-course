@@ -3,8 +3,7 @@ import { Profile } from "./Gallery";
 function App() {
   return (
     <>
-      {/* <Gallery /> */}
-      <Profile />
+      <Gallery />
     </>
   );
 }

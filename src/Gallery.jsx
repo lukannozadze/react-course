@@ -8,7 +8,7 @@ export const Profile = () => {
 const Gallery = () => {
   return (
     <section>
-      <h1>Amazing Indians</h1>
+      <h1 style={{ color: "red", backgroundColor: "pink" }}>Amazing Indians</h1>
       <Profile />
       <Profile />
       <Profile />

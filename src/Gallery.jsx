@@ -6,4 +6,15 @@ const Profile = () => {
     />
   );
 };
-export default Profile;
+
+const Gallery = () => {
+  return (
+    <section>
+      <h1>Amazing Indians</h1>
+      <Profile />
+      <Profile />
+      <Profile />
+    </section>
+  );
+};
+export default Gallery;

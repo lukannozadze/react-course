@@ -1,7 +1,18 @@
-import Toolbar from "./Toolbar"
+const Button = ({children,onSmash}) =>{
+  return (
+    <button onClick={onSmash}>
+      {children}
+    </button>
+  )
+}
+
+
 function App() {
+  const smashHandler = ()=>{
+  console.log('Smashed');
+  }
  return <>
-  <Toolbar/>
+  <Button onSmash={smashHandler}></Button>
  </>
 }
 

@@ -141,8 +141,16 @@ function App() {
     }
     return sum;
   },[])
-
+ 
+  const strongCallback = useCallback(()=>{
+    let sum = 0;
+    for(let i =0;i<100000;i++){
+      sum+=i;
+    }
+    return sum;
+  },[])
   
+  console.log(strongCallback());
 
   return (
     <>
@@ -153,6 +161,7 @@ function App() {
       </button>
       <h1>{count}</h1>
       <p>{strongValue}</p>
+      
     </>
   );
 }

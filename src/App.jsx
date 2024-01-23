@@ -74,7 +74,7 @@
 
 // const MoodsContext = createContext(moods);
 // function App() {
-//   return <>  
+//   return <>
 //    <MoodsContext.Provider value={moods}>
 //     {/* child components who will use moods object */}
 //     <AppChild/>
@@ -86,7 +86,7 @@
 // const AppChild = () =>{
 //   const mood = useContext(MoodsContext);
 //   console.log(mood);
-// return <h1>I'am app's child</h1>  
+// return <h1>I'am app's child</h1>
 // }
 
 // import {useRef} from 'react'
@@ -97,30 +97,63 @@
 // // }
 // // export default App;
 
-
 // //main use case of useRef is to reference it html elements and then grab it into js code
 // function App(){
 //   const headerRef = useRef(null);
 // return <h1 onClick={()=>console.log(headerRef.current.textContent)} ref={headerRef}>Hello World</h1>
 // }
 // export default App;
-const reducer = (state,action) =>{
- switch(action.type){
-  case 'increment': return state + 1;
-  case 'decrement': return state - 1;
-  default: console.log('wrong')
- }
-}
-import { useReducer } from "react";
-function App(){
-const [res,dispatch] = useReducer(reducer,0);
-console.log(res);
-return (
-  <>
-  <button onClick={()=>dispatch({type:'increment'})}>Increment</button>
-  <button onClick={()=>dispatch({type:'decrement'})}>Decrement</button>
-  <p>{res.count}</p>
-  </>
-)
+
+// const reducer = (state,action) =>{
+//  switch(action.type){
+//   case 'increment': return state + 1;
+//   case 'decrement': return state - 1;
+//   default: console.log('wrong')
+//  }
+// }
+// import { useReducer } from "react";
+// function App(){
+// const [res,dispatch] = useReducer(reducer,0);
+// console.log(res);
+// return (
+//   <>
+//   <button onClick={()=>dispatch({type:'increment'})}>Increment</button>
+//   <button onClick={()=>dispatch({type:'decrement'})}>Decrement</button>
+//   <p>{res.count}</p>
+//   </>
+// )
+// }
+// export default App;
+
+import { useCallback } from "react";
+import { useState, useMemo } from "react";
+function App() {
+  const [count, setCount] = useState(1);
+
+  const handleClick = ()=>{
+    setCount(count + 1);
+  }
+  //in this case code inside useMemo renders only on
+  const strongValue = useMemo(function(){
+    let sum = 0;
+    for(let i =0;i<100000;i++){
+      sum+=i;
+    }
+    return sum;
+  },[])
+
+  
+
+  return (
+    <>
+      <button
+        onClick={handleClick}
+      >
+        Multiply
+      </button>
+      <h1>{count}</h1>
+      <p>{strongValue}</p>
+    </>
+  );
 }
 export default App;

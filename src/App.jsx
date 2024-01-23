@@ -104,3 +104,23 @@
 // return <h1 onClick={()=>console.log(headerRef.current.textContent)} ref={headerRef}>Hello World</h1>
 // }
 // export default App;
+const reducer = (state,action) =>{
+ switch(action.type){
+  case 'increment': return state + 1;
+  case 'decrement': return state - 1;
+  default: console.log('wrong')
+ }
+}
+import { useReducer } from "react";
+function App(){
+const [res,dispatch] = useReducer(reducer,0);
+console.log(res);
+return (
+  <>
+  <button onClick={()=>dispatch({type:'increment'})}>Increment</button>
+  <button onClick={()=>dispatch({type:'decrement'})}>Decrement</button>
+  <p>{res.count}</p>
+  </>
+)
+}
+export default App;

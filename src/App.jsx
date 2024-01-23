@@ -65,26 +65,42 @@
 // }
 // export default App;
 
-import { useContext } from "react";
-import { createContext } from "react";
-const moods = {
-  happy: 1,
-  sad: 0,
-};
+// import { useContext } from "react";
+// import { createContext } from "react";
+// const moods = {
+//   happy: 1,
+//   sad: 0,
+// };
 
-const MoodsContext = createContext(moods);
-function App() {
-  return <>  
-   <MoodsContext.Provider value={moods}>
-    {/* child components who will use moods object */}
-    <AppChild/>
-   </MoodsContext.Provider>
-  </>;
-}
-export default App;
+// const MoodsContext = createContext(moods);
+// function App() {
+//   return <>  
+//    <MoodsContext.Provider value={moods}>
+//     {/* child components who will use moods object */}
+//     <AppChild/>
+//    </MoodsContext.Provider>
+//   </>;
+// }
+// export default App;
 
-const AppChild = () =>{
-  const mood = useContext(MoodsContext);
-  console.log(mood);
-return <h1>I'am app's child</h1>  
-}
+// const AppChild = () =>{
+//   const mood = useContext(MoodsContext);
+//   console.log(mood);
+// return <h1>I'am app's child</h1>  
+// }
+
+// import {useRef} from 'react'
+// // //like useState in useRef you can save state but unlike useState useRef does not make component re-render on it's change
+// // function App(){
+// //   const count = useRef(0);
+// // return <h1 onClick={()=>{count.current++}}>Hello World</h1>
+// // }
+// // export default App;
+
+
+// //main use case of useRef is to reference it html elements and then grab it into js code
+// function App(){
+//   const headerRef = useRef(null);
+// return <h1 onClick={()=>console.log(headerRef.current.textContent)} ref={headerRef}>Hello World</h1>
+// }
+// export default App;

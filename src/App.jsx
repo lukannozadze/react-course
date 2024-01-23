@@ -1,9 +1,18 @@
+import { useState,useDebugValue } from "react";
 import { useLayoutEffect } from "react";
 
+
+function useDisplayWord(){
+const [word,setWord] = useState(null)
+
+return [word,setWord];
+}
+
+
 function App() {
-useLayoutEffect(()=>{
- //code here executes after render and before painting 
-})
+const [word,setWord] = useDisplayWord();
+useDebugValue(word ? 'Word is set' : 'Word is not set');
+
 }
 
 export default App;

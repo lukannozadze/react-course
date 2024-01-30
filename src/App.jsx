@@ -5,10 +5,10 @@ const App = () => {
   const doubledNumber = useMemo(()=>{
     return multiplied(number)
   },[number]);
-  const style={
-    backgroundColor:clicked?'black':'white',
-    color:clicked?'white':'black'
-  }
+  const style=useMemo(()=>{
+    return {backgroundColor:clicked?'black':'white',
+    color:clicked?'white':'black'}
+  },[clicked])
   const inputChangeHandler = (event) =>{
      setNumber(event.target.value);
   }

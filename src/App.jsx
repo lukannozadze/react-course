@@ -1,29 +1,30 @@
+import {useState,useMemo} from 'react'
 const App = () => {
-  const addNums = (num1, num2) => {
-    return num1 + num2;
-  };
-  const x = useCustomMemo(addNums);
-  console.log(x(1,2));
-  console.log(x(1,2));
-  return (
-    <>
-      <h1>React Intermediate</h1>
-    </>
-  );
-};
-export default App;
-
-const useCustomMemo = (fn) => {
-  const cache = {};
+  const [number,setNumber] = useState(0);
+  const [clicked,setClicked] = useState(false);
+  const doubledNumber = useMemo(()=>{
+    return multiplied(number)
+  },[number]);
+  const style={
+    backgroundColor:clicked?'black':'white',
+    color:clicked?'white':'black'
+  }
+  const inputChangeHandler = (event) =>{
+     setNumber(event.target.value);
+  }
   
-  return (...args) => {
-    if (args.toString() in cache) {
-      console.log(cache);
-      return cache[args.toString()];
-    }
-    console.log("fire");
-    const result = fn(...args);
-    cache[args.toString()] = result;
-    return result;
-  };
-};
+  const buttonClickHandler = () =>{
+      setClicked(!clicked);
+  }
+
+  function multiplied(num){
+    for(let i=0; i<1000000000;i++){}
+    return num*2;
+  }
+ return (<>
+ <input onChange={inputChangeHandler} type="number"></input>
+ <button onClick={buttonClickHandler}>Change Theme</button>
+ <p style={style}>{doubledNumber}</p>
+ </>)
+}
+export default App;

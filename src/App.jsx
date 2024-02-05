@@ -1,8 +1,18 @@
+import { Content } from "./components/Content";
+import { Header } from "./components/Header";
 import useMount from "./hooks/useMount";
-
+import ContextProvider  from "./providers/Provider";
 const App = () => {
-  useMount(()=>{console.log('fire')});
- return <div></div>
+ 
+ return <div>
+  <Header/>
+  <Content/>
+ </div>
 };
 
-export default App;
+
+export default function WithProvider(){
+  return <ContextProvider>
+    <App/>
+  </ContextProvider>
+}
